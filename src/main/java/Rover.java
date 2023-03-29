@@ -44,7 +44,6 @@ public class Rover {
                 if(this.location.getX() == obstacle.location.getX() && this.location.getY() == obstacle.location.getY()){
                     this.direction.goBack(this.location);
                     colisioned = true;
-                    System.out.println("Paso por aqui");
                 }
             }
             if(colisioned){
