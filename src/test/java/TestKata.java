@@ -169,4 +169,16 @@ public class TestKata {
         assertEquals(-10,rover.getX());
         assertEquals(0,rover.getY());
     }
+
+    @Test
+    void test_obstacle(){
+        Rover rover = new Rover(0,0);
+        Mars mars = rover.mars;
+
+        Character[] orders = {'F','R','F','L','F','F','F','F','F','F','F','F'};
+        rover.followOrders(orders);
+        assert(rover.getDirection() instanceof East);
+        assertEquals(0,rover.getX());
+        assertEquals(1,rover.getY());
+    }
 }

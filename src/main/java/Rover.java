@@ -28,6 +28,7 @@ public class Rover {
     private final HashMap<Character, Runnable> ordersMap = new HashMap<>();
 
     public void followOrders(Character[] orders){
+        boolean colisioned = false;
         for(Character order : orders){
             ordersMap.get(order).run();
             if(this.getX() > mars.getMaxX()){
@@ -38,6 +39,16 @@ public class Rover {
                 this.location.setY(mars.getMinY());
             }else if(this.getY() < mars.getMinY()){
                 this.location.setY(mars.getMaxY());
+            }
+            for(Obstacle obstacle : mars.getObstacles()){
+                if(this.location.getX() == obstacle.location.getX() && this.location.getY() == obstacle.location.getY()){
+                    this.direction.goBack(this.location);
+                    colisioned = true;
+                    System.out.println("Paso por aqui");
+                }
+            }
+            if(colisioned){
+                break;
             }
         }
     }

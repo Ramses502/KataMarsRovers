@@ -1,10 +1,10 @@
 public class Mars {
 
-    int minX;
-    int minY;
-    int maxX;
-    int maxY;
-    Obstacle[] obstacles = {new Obstacle(0,1), new Obstacle(2,2)};
+    private int minX;
+    private int minY;
+    private int maxX;
+    private int maxY;
+    private Obstacle[] obstacles;
 
     public Mars(){
 
@@ -12,6 +12,7 @@ public class Mars {
         this.maxY = 10;
         this.minX = -10;
         this.minY = -10;
+        this.obstacles = new Obstacle[] {new Obstacle(1, 1), new Obstacle(2, 2)};
     }
 
     private static Mars marsInstance;
@@ -21,6 +22,14 @@ public class Mars {
             marsInstance = new Mars();
         }
         return marsInstance;
+    }
+
+    public Obstacle[] getObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(Obstacle[] obstacles) {
+        this.obstacles = obstacles;
     }
 
     public int getMinX() {
@@ -54,4 +63,5 @@ public class Mars {
     public void setMaxY(int maxY) {
         this.maxY = maxY;
     }
+
 }
